@@ -22,7 +22,7 @@ public class CustomerRestController {
     }
 
     // Return a customer for the given id
-    @GetMapping("/customer/{customerId}")
+    @GetMapping("/customers/{customerId}")
     public Customer getCustomer(@PathVariable int customerId){
         // If customerId is not found on the server, it will return null
         Customer theCustomer = customerService.getCustomer(customerId);
@@ -30,6 +30,18 @@ public class CustomerRestController {
         if (theCustomer == null){
             throw new CustomerNotFoundException("Customer id not found - " + customerId);
         }
+
+        return theCustomer;
+    }
+
+    // add mapping for POST /customers - add new customer
+    @PostMapping("/customers")
+    public Customer addCustomer(@RequestBody Customer theCustomer){
+        // Our backend DAO code uses Hibernate method saveOrUpdate()
+        // If id primaryKey is empty(null or 0) then INSERT, so we overwrite the id to 0
+        theCustomer.setId(0);
+
+        customerService.saveCustomer(theCustomer);
 
         return theCustomer;
     }
