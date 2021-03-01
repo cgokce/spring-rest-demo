@@ -27,11 +27,9 @@ public class CustomerRestController {
         // If customerId is not found on the server, it will return null
         Customer theCustomer = customerService.getCustomer(customerId);
 
-        /*
         if (theCustomer == null){
-            theCustomer = new Customer();
+            throw new CustomerNotFoundException("Customer id not found - " + customerId);
         }
-        */
 
         return theCustomer;
     }
