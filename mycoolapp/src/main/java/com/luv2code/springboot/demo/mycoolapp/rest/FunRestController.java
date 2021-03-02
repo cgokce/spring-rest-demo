@@ -14,4 +14,10 @@ public class FunRestController {
         return "HelloWorld! Time on server is " + LocalDateTime.now();
     }
 
+    // Expose a new endpoint for "workout"
+    @GetMapping("/workout")
+    public String getDailyWorkout(){
+        return "Run 5 miles!";
+    }
+
 }
