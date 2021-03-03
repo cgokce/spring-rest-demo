@@ -39,6 +39,7 @@ public class EmployeeRestController{
         return theEmployee;
     }
 
+    // Add a new Employee
     @PostMapping("/employees")
     public Employee addEmployee(@RequestBody Employee theEmployee){
 
@@ -50,5 +51,31 @@ public class EmployeeRestController{
 
         return theEmployee;
     }
+
+    // add mapping for PUT /employees - update existing employee
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee theEmployee){
+
+        employeeService.save(theEmployee);
+
+        return theEmployee;
+    }
+
+    // add mapping for DELETE /employee/{employeeId} - delete existing employee
+    @DeleteMapping("/employees/{employeeId}")
+    public String deleteEmployee(@PathVariable int employeeId){
+
+        Employee theEmployee = employeeService.findById(employeeId);
+
+        // Throw exception if null
+        if (theEmployee == null){
+            throw new RuntimeException("Employee does not exists: " + theEmployee.toString());
+        }
+
+        employeeService.deleteById(employeeId);
+
+        return "Deleted employee id - " + employeeId;
+    }
+
 
 }
