@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Directory</title>
+
+    <!-- reference CSS files ... local file and bootstrap on web -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h3>Employee Directory</h3>
+        <hr>
+
+        <table class="table table-bordered table-striped">
+
+            <!-- Build HTML table based on employees -->
+            <thead class="thead-dark">
+                <tr>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <!-- For each loop over the employees variable -->
+            <tbody>
+                <tr th:each="tempEmployee : ${employees}">
+
+                    <td th:text="${tempEmployee.firstName}"></td>
+                    <td th:text="${tempEmployee.lastName}"></td>
+                    <td th:text="${tempEmployee.email}"></td>
+
+                </tr>
+            </tbody>
+
+
+        </table>
+    </div>
+</body>
+</html>
