@@ -9,4 +9,4 @@ To run the Spring 5 examples:
 
 To run the CRUD examples:
 - Download the [MySQL](https://dev.mysql.com/downloads/installer/) local environment and install with developer defaults.
-- Run the scripts at `spring-crm-rest-demo/sql-scripts` directory.
+- Run the scripts at `sql-scripts/` directory.
