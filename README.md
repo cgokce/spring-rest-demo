@@ -6,3 +6,7 @@ To run the Spring 5 examples:
 - Download the [Apache Tomcat 9.x](https://tomcat.apache.org/download-90.cgi) Web Server.
 - Install and configure the Intellij IDEA [Smart Tomcat Plugin](https://plugins.jetbrains.com/plugin/9492-smart-tomcat)
 - Run the application, maven and plugin will handle the build process.
+
+To run the CRUD examples:
+- Download the [MySQL](https://dev.mysql.com/downloads/installer/) local environment and install with developer defaults.
+- Run the scripts at `sql-scripts/` directory.
